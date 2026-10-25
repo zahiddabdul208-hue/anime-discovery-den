@@ -25,7 +25,7 @@ let queue: Promise<unknown> = Promise.resolve();
 async function get<T>(path: string): Promise<T> {
   const run = async () => {
     for (let attempt = 0; attempt < 3; attempt++) {
-      const res = await fetch(BASE + path);
+      const res = await fetch(BASE + path, { signal: AbortSignal.timeout(10000) });
       if (res.status === 429) { await sleep(1000 * (attempt + 1)); continue; }
       if (!res.ok) throw new Error(`Jikan ${res.status}`);
       return (await res.json()) as T;

@@ -24,7 +24,7 @@ export function Header() {
   );
 }
 
-export function Poster({ anime, className }: { anime: Pick<Anime, "image" | "title">; className?: string }) {
+export function Poster({ anime, className }: { anime: { title: string; image?: string | null | undefined }; className?: string }) {
   return anime.image ? (
     <img src={anime.image} alt="" loading="lazy" className={cn("h-full w-full object-cover", className)} />
   ) : (
