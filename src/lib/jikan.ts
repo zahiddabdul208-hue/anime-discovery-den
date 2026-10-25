@@ -14,7 +14,7 @@ export type Anime = {
   demo?: boolean;
 };
 export type Episode = { mal_id: number; title: string; aired?: string | null };
-export type Genre = { mal_id: number; name: string; count?: number };
+export type Genre = { mal_id: number; name: string; count?: number | undefined };
 export type Result<T> = { data: T; demo: boolean };
 
 const BASE = "https://api.jikan.moe/v4";

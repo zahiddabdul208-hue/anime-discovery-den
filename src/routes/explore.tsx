@@ -6,12 +6,12 @@ import { fetchSearch, fetchGenres } from "@/lib/jikan";
 import { Grid, Loading, ErrorState, DemoBanner } from "@/components/nime";
 import { cn } from "@/lib/utils";
 
-type S = { q?: string; genre?: number };
+type S = { q?: string | undefined; genre?: number | undefined };
 
 export const Route = createFileRoute("/explore")({
   validateSearch: (s: Record<string, unknown>): S => ({
-    q: typeof s.q === "string" && s.q ? s.q : undefined,
-    genre: Number(s.genre) > 0 ? Number(s.genre) : undefined,
+    q: typeof s["q"] === "string" && s["q"] ? s["q"] : undefined,
+    genre: Number(s["genre"]) > 0 ? Number(s["genre"]) : undefined,
   }),
   head: () => ({
     meta: [

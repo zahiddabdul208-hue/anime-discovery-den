@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 
-export type SavedAnime = { mal_id: number; title: string; image?: string | null };
+export type SavedAnime = { mal_id: number; title: string; image?: string | null | undefined };
 export type HistoryItem = SavedAnime & { episode: number; watchedAt: number };
 
 const FAV = "nime:favorites";
